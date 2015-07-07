@@ -1,0 +1,7 @@
+add the invoice/id to this URL to use the API
+
+<br>
+  <% @invoices.each do |invoice| %>
+    <%= invoice.build_invoice_hash %>
+  <% end %>
+<br>
