@@ -31,6 +31,20 @@
   font-size: 16px;
 }
 
+#invoice_list {
+  height: 450px;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-top-color: #313539;
+}
+
+.header {
+  border-top-color: gray;
+}
+
 .btn-custom {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(86,168,198,1)), color-stop(100%,rgba(13,108,153,1)));
   -webkit-border-radius: 7px;
@@ -48,24 +62,24 @@
   margin-top: 5px;
 }
 
-// .close {
-//   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-//   text-indent: -9999px;
-//   text-decoration: none;
-// }
-// .close::after {
-//   content: "\2716";
-//   color:#b31657;
-//   text-indent: 0;
-//   display: block;
-//   font-size: 14px;
-//   margin-left:11px;
-//   margin-top:10px;
-// }
-//
-// .close:hover {
-// }
-//
-// .close:active {
-//   cursor: pointer;
-// }
+.close {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-indent: -9999px;
+  text-decoration: none;
+}
+.close::after {
+  content: "\2716";
+  color:#b31657;
+  text-indent: 0;
+  display: block;
+  font-size: 14px;
+  margin-left:11px;
+  margin-top:10px;
+}
+
+.close:hover {
+}
+
+.close:active {
+  cursor: pointer;
+}
