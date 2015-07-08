@@ -19,10 +19,20 @@ class InvoicesController < ApplicationController
     end
   end
 
-  def authenticate
-     authenticate_or_request_with_http_token do |token, options|
-      User.where(auth_token: token).present?
-     end
-   end
+  protected
+    def authenticate
+      authenticate_token || render_unauthorized
+    end
+
+    def authenticate_token
+      authenticate_with_http_token do |token, options|
+        User.find_by(auth_token: token)
+      end
+    end
+
+    def render_unauthorized
+      self.headers['WWW-Authenticate'] = 'Token realm="Application"'
+      render json: 'Bad Token', status: 401
+    end
 
 end
