@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootswatch/paper/variables";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootswatch/paper/bootswatch";
