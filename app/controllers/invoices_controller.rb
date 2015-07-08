@@ -6,8 +6,6 @@ class InvoicesController < ApplicationController
   end
 
   def invoice_api
-    authenticate_or_request_with_http_token do |token, options|
-
     invoice = Invoice.find(params[:id])
     if invoice
       invoice_api = invoice.build_invoice_hash
