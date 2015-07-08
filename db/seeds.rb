@@ -9,10 +9,7 @@
 
   Pos.create!(company_id: 1, name: "First Register", description: "Serial Number 545")
 
-  Item.create!(name: "Pencil", description: "Number 2 Fine", price: 1.00)
-  Item.create!(name: "Pen", description: "Black Very Fine", price: 2.00)
-  Item.create!(name: "Pad", description: "White Lined 8.5x11", price: 5.25)
-
+  Item.create!(name: "Bacon", description: "So Good!", price: 4.99)
 
   Customer.create!(
     name: "David",
@@ -24,6 +21,16 @@
     cc_auth: "1A1A"
   )
 
-  Invoice.create!(pos_id: 1, customer_id: 1, total: 20)
+  Customer.create!(
+    name: "Nick",
+    phone: "101-515-5555",
+    email: "nick@email",
+    address: "1001 1st St Denver CO 2000",
+    cc_type: "MasterCard",
+    cc_last4: 5678,
+    cc_auth: "2B2B"
+  )
+
+  Invoice.create!(pos_id: 1, customer_id: 1, total: 99.80)
 
   Transaction.create!(invoice_id: 1, item_id: 1, qty: 20)
