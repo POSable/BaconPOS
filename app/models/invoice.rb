@@ -35,19 +35,5 @@ class Invoice < ActiveRecord::Base
                 :netsuite_id => 1
       }
     )
-
-    response = HTTP.post("http://localhost:3000/fake",
-      :json => {:status => "ok",
-                :message => "New/Edited POS ID and Token",
-                :recorid => self.id,
-                :token => User.find_by(username: "ce").auth_token,
-                :lastUpdated => self.updated_at.strftime("%m/%d/%Y") + " " + self.updated_at.strftime("%Y-%m-%dT%H:%M:%S"),
-                :quickbooks_id => 1,
-                :xero_id => 1,
-                :greatplains_id => 1,
-                :freshbooks_id => 1,
-                :netsuite_id => 1
-      }
-    )
   end
 end
