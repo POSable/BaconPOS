@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'http', '~> 0.8.12'
+
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 
