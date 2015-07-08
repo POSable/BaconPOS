@@ -1,16 +1,32 @@
 <div class="col-md-6">
-  <div class="panel panel-default">
+  <div class="panel panel-primary">
     <%= form_for Invoice.new do |f| %>
     <div class="panel-heading">
-      <h5>Invoice #1</h5>
-      <%= f.collection_select :customer_id, Customer.all, :id, :name, {:prompt => 'Select Customer...'}, class: "form-control" %>
+      <div class='col-md-3'>
+        <h4>Invoice #1</h4>
+      </div>
+      <div class='col-md-offset-3'>
+        <%= f.collection_select :customer_id, Customer.all, :id, :name, {:prompt => 'Select Customer...'}, class: "form-control" %>
+      </div>
     </div>
 
     <div class="panel-body">
+      <table>
+        <tr>
+          <th class='col-md-6'>Item</th>
+          <th class='col-md-2'>Price</th>
+          <th class='col-md-2'>Quantity</th>
+          <th class='col-md-2'></th>
+        </tr>
+        <tbody>
+          <tr class='line_items'></tr>
+        </tbody>
+      </table>
+
     </div>
 
-    <div class='panel-footer'>
-      <%= f.submit 'Pay', class: "btn btn-primary" %>
+    <div class='panel-footer text-right'>
+      <%= f.submit 'Pay', class: "btn btn-success btn-lg" %>
     </div>
     <% end %>
   </div>
@@ -19,79 +35,55 @@
 <div class="col-md-6 text-center">
 
   <div class='col-md-6'>
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Bacon</h3>
-        <a href="#" class="btn btn-default btn-sm pull-right">+</a>
-      </div>
-      <div class="panel-body">
-        <%= image_tag('bacon.png') %>
-      </div>
-      <div class='panel-footer'>
-        $4.99
+    <div class="well">
+      <h4>Bacon</h4>
+      <%= image_tag('bacon.png') %>
+      <div id='price'>4.99</div>
+      <div id='add'>
+        <a href="#" class="btn btn-info btn-custom">+ Add</a>
       </div>
     </div>
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Pancetta</h3>
-        <a href="#" class="btn btn-default btn-sm pull-right">+</a>
-      </div>
-      <div class="panel-body">
-        <%= image_tag('pancetta.png') %>
-      </div>
-      <div class='panel-footer'>
-        $8.99
+    <div class="well">
+      <h4>Pancetta</h4>
+      <%= image_tag('pancetta.png') %>
+      <div id='price'>6.99</div>
+      <div id='add'>
+        <a href="#" class="btn btn-info btn-custom">+ Add</a>
       </div>
     </div>
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Pork Belly</h3>
-        <a href="#" class="btn btn-default btn-sm pull-right">+</a>
-      </div>
-      <div class="panel-body">
-        <%= image_tag('pork_belly.png') %>
-      </div>
-      <div class='panel-footer'>
-        $9.99
+    <div class="well">
+      <h4>Pork Belly</h4>
+      <%= image_tag('pork_belly.png') %>
+      <div id='price'>5.50</div>
+      <div id='add'>
+        <a href="#" class="btn btn-info btn-custom">+ Add</a>
       </div>
     </div>
   </div>
 
-  <div class='col-md-6 text-center'>
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Salami</h3>
-        <a href="#" class="btn btn-default btn-sm pull-right">+</a>
-      </div>
-      <div class="panel-body">
-        <%= image_tag('salami.png') %>
-      </div>
-      <div class='panel-footer'>
-        $5.99
+  <div class='col-md-6'>
+    <div class="well">
+      <h4>Salami</h4>
+      <%= image_tag('salami.png') %>
+      <div id='price'>8.99</div>
+      <div id='add'>
+        <a href="#" class="btn btn-info btn-custom">+ Add</a>
       </div>
     </div>
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Canadian Bacon</h3>
-        <a href="#" class="btn btn-default btn-sm pull-right">+</a>
-      </div>
-      <div class="panel-body">
-        <%= image_tag('canadian_bacon.png') %>
-      </div>
-      <div class='panel-footer'>
-        $6.99
+    <div class="well">
+      <h4>Canadian Bacon</h4>
+      <%= image_tag('canadian_bacon.png') %>
+      <div id='price'>6.49</div>
+      <div id='add'>
+        <a href="#" class="btn btn-info btn-custom">+ Add</a>
       </div>
     </div>
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Pork Chops</h3>
-        <a href="#" class="btn btn-default btn-sm pull-right">+</a>
-      </div>
-      <div class="panel-body">
-        <%= image_tag('pork_chop.png') %>
-      </div>
-      <div class='panel-footer'>
-        $8.99
+    <div class="well">
+      <h4>Pork Chops</h4>
+      <%= image_tag('pork_chop.png') %>
+      <div id='price'>4.99</div>
+      <div id='add'>
+        <a href="#" class="btn btn-info btn-custom">+ Add</a>
       </div>
     </div>
   </div>
