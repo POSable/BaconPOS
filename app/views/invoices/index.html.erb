@@ -1,27 +1,99 @@
 <div class="col-md-6">
-
   <div class="panel panel-default">
     <%= form_for Invoice.new do |f| %>
-    <div class="panel-heading">Invoice #1
+    <div class="panel-heading">
+      <h5>Invoice #1</h5>
       <%= f.collection_select :customer_id, Customer.all, :id, :name, {:prompt => 'Select Customer...'}, class: "form-control" %>
     </div>
 
     <div class="panel-body">
+    </div>
 
+    <div class='panel-footer'>
       <%= f.submit 'Pay', class: "btn btn-primary" %>
-
     </div>
     <% end %>
   </div>
-
-
 </div>
 
+<div class="col-md-6 text-center">
 
+  <div class='col-md-6'>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Bacon</h3>
+        <a href="#" class="btn btn-default btn-sm pull-right">+</a>
+      </div>
+      <div class="panel-body">
+        <%= image_tag('bacon.png') %>
+      </div>
+      <div class='panel-footer'>
+        $4.99
+      </div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Pancetta</h3>
+        <a href="#" class="btn btn-default btn-sm pull-right">+</a>
+      </div>
+      <div class="panel-body">
+        <%= image_tag('pancetta.png') %>
+      </div>
+      <div class='panel-footer'>
+        $8.99
+      </div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Pork Belly</h3>
+        <a href="#" class="btn btn-default btn-sm pull-right">+</a>
+      </div>
+      <div class="panel-body">
+        <%= image_tag('pork_belly.png') %>
+      </div>
+      <div class='panel-footer'>
+        $9.99
+      </div>
+    </div>
+  </div>
 
+  <div class='col-md-6 text-center'>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Salami</h3>
+        <a href="#" class="btn btn-default btn-sm pull-right">+</a>
+      </div>
+      <div class="panel-body">
+        <%= image_tag('salami.png') %>
+      </div>
+      <div class='panel-footer'>
+        $5.99
+      </div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Canadian Bacon</h3>
+        <a href="#" class="btn btn-default btn-sm pull-right">+</a>
+      </div>
+      <div class="panel-body">
+        <%= image_tag('canadian_bacon.png') %>
+      </div>
+      <div class='panel-footer'>
+        $6.99
+      </div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Pork Chops</h3>
+        <a href="#" class="btn btn-default btn-sm pull-right">+</a>
+      </div>
+      <div class="panel-body">
+        <%= image_tag('pork_chop.png') %>
+      </div>
+      <div class='panel-footer'>
+        $8.99
+      </div>
+    </div>
+  </div>
 
-<br>
-  <% @invoices.each do |invoice| %>
-    <%= invoice.build_invoice_hash %>
-  <% end %>
-<br>
+</div>
