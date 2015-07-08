@@ -1,10 +1,13 @@
 class InvoicesController < ApplicationController
+  before_action :authenticate, except: [:index]
 
   def index
     @invoices =  Invoice.all
   end
 
   def invoice_api
+    authenticate_or_request_with_http_token do |token, options|
+
     invoice = Invoice.find(params[:id])
     if invoice
       invoice_api = invoice.build_invoice_hash
@@ -17,5 +20,11 @@ class InvoicesController < ApplicationController
       end
     end
   end
+
+  def authenticate
+     authenticate_or_request_with_http_token do |token, options|
+      User.where(auth_token: token).present?
+     end
+   end
 
 end
