@@ -21,19 +21,21 @@ class Invoice < ActiveRecord::Base
   end
 
   def send_cloud_elements_webhook
-    require "http"
-    response = HTTP.post("https://staging.cloud-elements.com/elements/api-v2/events/posable",
-      :json => {:status => "ok",
-                :message => "New/Edited POS ID and Token",
-                :recorid => self.id,
-                :token => User.find_by(username: "ce").auth_token,
-                :lastUpdated => self.updated_at.strftime("%m/%d/%Y") + " " + self.updated_at.strftime("%Y-%m-%dT%H:%M:%S"),
-                :quickbooks_id => 1,
-                :xero_id => 1,
-                :greatplains_id => 1,
-                :freshbooks_id => 1,
-                :netsuite_id => 1
-      }
-    )
+    if self.total && self.total > 0
+      require "http"
+      response = HTTP.post("https://staging.cloud-elements.com/elements/api-v2/events/posable",
+        :json => {:status => "ok",
+                  :message => "New/Edited POS ID and Token",
+                  :recorid => self.id,
+                  :token => User.find_by(username: "ce").auth_token,
+                  :lastUpdated => self.updated_at.strftime("%m/%d/%Y") + " " + self.updated_at.strftime("%Y-%m-%dT%H:%M:%S"),
+                  :quickbooks_id => 1,
+                  :xero_id => 1,
+                  :greatplains_id => 1,
+                  :freshbooks_id => 1,
+                  :netsuite_id => 1
+        }
+      )
+    end
   end
 end

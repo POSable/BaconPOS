@@ -1,5 +1,5 @@
 class InvoicesController < ApplicationController
-  before_action :authenticate, except: [:index]
+  before_action :authenticate, except: [:index, :temp_edit_invoice_api]
 
   def index
     @invoices =  Invoice.all
@@ -19,8 +19,18 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def temp_edit_invoice_api
+    new_invoice = Invoice.create!(pos_id: Pos.last.id, customer_id: Customer.last.id)
+    new_transaction = Transaction.create!(invoice_id: new_invoice.id, item_id: Item.last.id, qty: 10)
+    new_invoice.update!(total: Item.last.price * new_transaction.qty)
+
+    render json: {new_invoice: new_invoice, new_transaction: new_transaction}
+
+  end
+
   protected
     def authenticate
+      binding.pry
       authenticate_token || render_unauthorized
     end
 
