@@ -10,6 +10,9 @@ class Invoice < ActiveRecord::Base
   def build_invoice_hash
     invoice_hash = {}
     invoice_hash[:customer] = self.customer.name
+    invoice_hash[:card_type] = self.customer.cc_type
+    invoice_hash[:card_last4_digits] = self.customer.cc_last4
+    invoice_hash[:authorization_code] = self.customer.cc_auth
     invoice_hash[:pos_name] = self.pos.name
     transactions = self.transactions
     invoice_hash[:transactions] = {}
@@ -17,6 +20,8 @@ class Invoice < ActiveRecord::Base
       invoice_hash[:transactions][transaction.item.id] = {name: transaction.item.name, quantity: transaction.qty, unit_price: transaction.item.price}
     end
     invoice_hash[:total] = self.total
+    invoice_hash[:date] = self.updated_at.strftime("%m/%d/%Y")
+    invoice_hash[:time] = self.updated_at.strftime("%H:%M:%S")
     invoice_hash
   end
 
