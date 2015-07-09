@@ -12,9 +12,9 @@ class Invoice < ActiveRecord::Base
     invoice_hash[:customer] = self.customer.name
     invoice_hash[:pos_name] = self.pos.name
     transactions = self.transactions
-    invoice_hash[:transactions] = []
+    invoice_hash[:transactions] = {}
     transactions.each do |transaction|
-      invoice_hash[:transactions] << [transaction.qty, transaction.item.name, transaction.item.price]
+      invoice_hash[:transactions][transaction.item.id] = {name: transaction.item.name, quantity: transaction.qty, unit_price: transaction.item.price}
     end
     invoice_hash[:total] = self.total
     invoice_hash
