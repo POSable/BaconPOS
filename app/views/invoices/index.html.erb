@@ -1,3 +1,17 @@
+<div class='well col-md-12 top-header'>
+  <div class='col-md-3'><%= image_tag('POSable.png') %></div>
+  <div class='col-md-6'></div>
+  <div class='col-md-2 text-center'>
+    <h4>Banctek Solutions</h4>
+    <h5>1215 Delaware St</h5>
+    <h5>Denver, CO 80204</h5>
+    <h5>303-623-3290</h5>
+  </div>
+  <div class='col-md-1 text-center'><br><br>
+    <span class="glyphicon glyphicon-align-justify" aria-hidden="true">&nbsp;Menu</span>
+  </div>
+</div>
+
 <div class="col-md-6">
 
   <div class="well">
@@ -12,18 +26,17 @@
 
     <div id='invoice_list'>
       <div class='row text-center'>
-        <div class='col-md-6'>Item</div>
-        <div class='col-md-2'>Price</div>
+        <div class='col-md-1'></div>
+        <div class='col-md-7'>Item</div>
         <div class='col-md-2'>Quantity</div>
-        <div class='col-md-2'>Remove</div>
+        <div class='col-md-2'>Price</div>
       </div>
       <hr class='header'>
-      <div class='row' id='line_items'></div>
+      <div class='row line_items'></div>
     </div>
 
-
     <div class='text-right'><hr class='header'>
-      <p>Total: </p>
+      <h4>Total:&nbsp;&nbsp;$<span id='total'></span></h4>
       <a href="#" class="btn btn-success btn-lg">PAY</a>
     </div>
   </div>
@@ -33,55 +46,77 @@
 <div class="col-md-6 text-center">
 
   <div class='col-md-6'>
-    <div class="well">
-      <h4>Bacon</h4>
-      <%= image_tag('bacon.png') %>
-      <div id='price'>4.99</div>
-      <div id='add'>
-        <a href="#" class="btn btn-info btn-custom">+ Add</a>
+    <div class="well col-md-12">
+      <div><h4 id='name'>Bacon</h4></div><hr class='item_header'>
+      <div class='col-md-6'><%= image_tag('bacon.png') %></div>
+      <div class='col-md-6'>
+        <div>$&nbsp;<span id='price'>4.99</span></div>
+        <div id='add'><a href="#" class="btn btn-info btn-custom">+ Add</a></div>
       </div>
     </div>
-    <div class="well">
-      <h4>Salami</h4>
-      <%= image_tag('salami.png') %>
-      <div id='price'>6.99</div>
-      <div id='add'>
-        <a href="#" class="btn btn-info btn-custom">+ Add</a>
+
+    <div class="well col-md-12">
+      <div><h4 id='name'>Salami</h4></div><hr class='item_header'>
+      <div class='col-md-6'><%= image_tag('salami.png') %></div>
+      <div class='col-md-6'>
+        <div>$&nbsp;<span id='price'>4.99</span></div>
+        <div id='add'><a href="#" class="btn btn-info btn-custom">+ Add</a></div>
       </div>
     </div>
-    <div class="well">
-      <h4>Asparagus</h4>
-      <%= image_tag('asparagus.png') %>
-      <div id='price'>5.50</div>
-      <div id='add'>
-        <a href="#" class="btn btn-info btn-custom">+ Add</a>
+
+    <div class="well col-md-12">
+      <div><h4 id='name'>Asparagus</h4></div><hr class='item_header'>
+      <div class='col-md-6'><%= image_tag('asparagus.png') %></div>
+      <div class='col-md-6'>
+        <div>$&nbsp;<span id='price'>4.99</span></div>
+        <div id='add'><a href="#" class="btn btn-info btn-custom">+ Add</a></div>
+      </div>
+    </div>
+
+    <div class="well col-md-12">
+      <div><h4 id='name'>Salmon</h4></div><hr class='item_header'>
+      <div class='col-md-6'><%= image_tag('salmon.png') %></div>
+      <div class='col-md-6'>
+        <div>$&nbsp;<span id='price'>4.99</span></div>
+        <div id='add'><a href="#" class="btn btn-info btn-custom">+ Add</a></div>
       </div>
     </div>
   </div>
 
   <div class='col-md-6'>
-    <div class="well">
-      <h4>Cheddar</h4>
-      <%= image_tag('cheddar.png') %>
-      <div id='price'>8.99</div>
-      <div id='add'>
-        <a href="#" class="btn btn-info btn-custom">+ Add</a>
+    <div class="well col-md-12">
+      <div><h4 id='name'>Cheddar</h4></div><hr class='item_header'>
+      <div class='col-md-6'><%= image_tag('cheddar.png') %></div>
+      <div class='col-md-6'>
+        <div>$&nbsp;<span id='price'>4.99</span></div>
+        <div id='add'><a href="#" class="btn btn-info btn-custom">+ Add</a></div>
       </div>
     </div>
-    <div class="well">
-      <h4>Provolone</h4>
-      <%= image_tag('provolone.png') %>
-      <div id='price'>6.49</div>
-      <div id='add'>
-        <a href="#" class="btn btn-info btn-custom">+ Add</a>
+
+    <div class="well col-md-12">
+      <div><h4 id='name'>Provolone</h4></div><hr class='item_header'>
+      <div class='col-md-6'><%= image_tag('provolone.png') %></div>
+      <div class='col-md-6'>
+        <div>$&nbsp;<span id='price'>4.99</span></div>
+        <div id='add'><a href="#" class="btn btn-info btn-custom">+ Add</a></div>
       </div>
     </div>
-    <div class="well">
-      <h4>Broccoli</h4>
-      <%= image_tag('broccoli.png') %>
-      <div id='price'>4.99</div>
-      <div id='add'>
-        <a href="#" class="btn btn-info btn-custom">+ Add</a>
+
+    <div class="well col-md-12">
+      <div><h4 id='name'>Broccoli</h4></div><hr class='item_header'>
+      <div class='col-md-6'><%= image_tag('broccoli.png') %></div>
+      <div class='col-md-6'>
+        <div>$&nbsp;<span id='price'>4.99</span></div>
+        <div id='add'><a href="#" class="btn btn-info btn-custom">+ Add</a></div>
+      </div>
+    </div>
+
+    <div class="well col-md-12">
+      <div><h4 id='name'>Apples</h4></div><hr class='item_header'>
+      <div class='col-md-6'><%= image_tag('apples.png') %></div>
+      <div class='col-md-6'>
+        <div>$&nbsp;<span id='price'>4.99</span></div>
+        <div id='add'><a href="#" class="btn btn-info btn-custom">+ Add</a></div>
       </div>
     </div>
   </div>

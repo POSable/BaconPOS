@@ -19,6 +19,17 @@
 @import "bootstrap";
 @import "bootswatch/slate/bootswatch";
 
+
+body {
+  padding-top: 10px;
+}
+
+h5 {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  color: gray;
+}
+
 .well, .panel {
   color: white;
 }
@@ -28,7 +39,7 @@
 }
 
 #price {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 #invoice_list {
@@ -39,6 +50,14 @@ hr {
   margin-top: 10px;
   margin-bottom: 10px;
   border-top-color: #313539;
+}
+
+.item_header {
+  border-top-color: #3d98cc;
+}
+
+.top-header {
+  padding: 0px;
 }
 
 .header {
