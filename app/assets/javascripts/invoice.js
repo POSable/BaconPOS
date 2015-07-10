@@ -32,8 +32,11 @@ $(document).ready(function(){
       $('.btn-xs').on('click', function(){
         var trashItem = $(this).parent().parent();
         var divider = trashItem.next();
+        var trashPrice = trashItem.children('.item_price').html();
         trashItem.remove();
         divider.remove();
+        var newTotal = total - trashPrice;
+        $('#total').text(newTotal.toFixed(2));
       })
 
       $('.item_price').each(function(){
