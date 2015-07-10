@@ -1,57 +1,38 @@
 $(document).ready(function(){
 
-  var invoice = (function(){
-    return {
-      addProduct: addProduct,
-      updateInvoice: updateInvoice,
-    }
-
-  function addProduct() {
     $('.btn-custom').on('click', function(){
+      var allItems = [];
 
       var price = $(this).parent().prev().children('#price').html();
       var item = $(this).parent().parent().prev().prev().prev().children('#name').html();
+      var delete_button = '<div class="col-md-1"><button type="button" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></div>';
+      var add_item = '<div class="col-md-7 item_name">' + item + '</div>';
+      var add_quantity = '<div class="col-md-2 item_qty">' + 1 + '</div>';
+      var add_price = '<div class="col-md-2 item_price">' + price + '</div>';
 
-      if ($('#item').length == 0) {
-        var delete_button = '<div class="col-md-1"><span class="glyphicon glyphicon-remove"></span></div>';
-        var add_item = '<div class="col-md-7 item_name">' + item + '</div>';
-        var add_quantity = '<div class="col-md-2 item_qty">' + 1 + '</div>';
-        var add_price = '<div class="col-md-2 item_price">' + price + '</div>';
+      $('.line_items').after('<div class="row text-center" id="item">' + delete_button + add_item + add_quantity + add_price + '</div><hr>');
 
-        $('.line_items').after('<div class="row text-center" id="item">' + delete_button + add_item + add_quantity + add_price + '</div><hr>');
-      } else {
-          if (item == $('#item .item_name').html()) {
-            var oldQty = $('#item .qty').html();
-            var newQty = parseInt(oldQty) + 1;
-            $('.qty').html(newQty);
-          } else {
-            var delete_button = '<div class="col-md-1"><span class="glyphicon glyphicon-remove"></span></div>';
-            var add_item = '<div class="col-md-7 item_name">' + item + '</div>';
-            var add_quantity = '<div class="col-md-2 qty">' + 1 + '</div>';
-            var add_price = '<div class="col-md-2 price">' + price + '</div>';
+      $('#invoice_list #item').each(function(){
+        var itemCheck = $(this).children('.item_name').html();
+        var itemQty = $(this).children('.item_qty').html();
+        var newQty = parseInt(itemQty) + 1;
 
-            $('.line_items').after('<div class="row text-center" id="item">' + delete_button + add_item + add_quantity + add_price + '</div><hr>');
+        if ($.inArray(itemCheck, allItems) > -1) {
+          $('#invoice_list #item').first().next().remove();
+          $('#invoice_list #item').first().remove();
+          $('.item_qty', this).html(newQty);
+        } else {
+          allItems.push(itemCheck);
         }
-
-      }
-
       })
 
-  }
-
-  function updateInvoice() {
-    $('.btn-custom').on('click', function(){
-      var itemCount = 0;
-      $('#item').each(function(){
-        var count = $('.qty').html();
-
+      $('.btn-xs').on('click', function(){
+        var trashItem = $(this).parent().parent();
+        var divider = trashItem.next();
+        trashItem.remove();
+        divider.remove();
       })
+
     })
-  }
 
-})();
-
-  invoice.addProduct();
-  invoice.updateInvoice();
-
-})
+});
