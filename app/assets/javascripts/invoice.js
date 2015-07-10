@@ -2,6 +2,7 @@ $(document).ready(function(){
 
     $('.btn-custom').on('click', function(){
       var allItems = [];
+      var total = 0;
 
       var price = $(this).parent().prev().children('#price').html();
       var item = $(this).parent().parent().prev().prev().prev().children('#name').html();
@@ -16,11 +17,13 @@ $(document).ready(function(){
         var itemCheck = $(this).children('.item_name').html();
         var itemQty = $(this).children('.item_qty').html();
         var newQty = parseInt(itemQty) + 1;
+        var newPrice = price * newQty;
 
         if ($.inArray(itemCheck, allItems) > -1) {
           $('#invoice_list #item').first().next().remove();
           $('#invoice_list #item').first().remove();
           $('.item_qty', this).html(newQty);
+          $('.item_price', this).html(newPrice.toFixed(2));
         } else {
           allItems.push(itemCheck);
         }
@@ -32,6 +35,11 @@ $(document).ready(function(){
         trashItem.remove();
         divider.remove();
       })
+
+      $('.item_price').each(function(){
+        total += parseFloat($(this).html());
+      })
+      $('#total').text(total.toFixed(2));
 
     })
 
