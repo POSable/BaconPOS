@@ -9,12 +9,16 @@
 
   Pos.create!(company_id: 1, name: "First Register", description: "Serial Number 545")
 
+
+  Item.create!(name: "Bacon", description: "So Good!", price: 4.99)
   Item.create!(name: "Bacon", description: "So Good!", price: 4.99)
   Item.create!(name: "Cheddar", description: "So Good!", price: 8.99)
   Item.create!(name: "Salami", description: "So Good!", price: 6.99)
   Item.create!(name: "Provolone", description: "So Good!", price: 6.49)
   Item.create!(name: "Asparagus", description: "So Good!", price: 5.50)
   Item.create!(name: "Broccoli", description: "So Good!", price: 4.99)
+  Item.create!(name: "Salmon", description: "So Good!", price: 9.99)
+  Item.create!(name: "Apples", description: "So Good!", price: 2.99)
 
   Customer.create!(
     name: "David",
@@ -35,7 +39,3 @@
     cc_last4: 5678,
     cc_auth: "2B2B"
   )
-
-  Invoice.create!(pos_id: 1, customer_id: 1, total: 99.80)
-
-  Transaction.create!(invoice_id: 1, item_id: 1, qty: 20)

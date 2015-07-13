@@ -49,31 +49,36 @@ $(document).ready(function(){
 
     $('#pay').on('click', function(e){
 
-      var newInvoice = [];
+      var invoiceTrans = [];
 
       $('#invoice_list #item').each(function(){
         var itemID = $(this).children('.item_name').attr('id');
         var quantity = $(this).children('.item_qty').html();
 
-        newInvoice.push({item_id: itemID, item_qty: quantity});
+        invoiceTrans.push({"item_id": itemID, "item_qty": quantity});
 
       })
-      var createInvoice = JSON.stringify(newInvoice);
+
+      var test = JSON.stringify(invoiceTrans)
 
       $.ajax({
         type: 'POST',
         url: "invoice/ajax_create",
-        contentType: 'application/json; charset=utf-8',
+        traditional: true,
         dataType: 'json',
-        data: createInvoice,
+        data: {"transactions": test, "customer_id": 1, "pos_id": 1},
+        test: function (){
+          console.log(data);
+        },
         error: function(error){
           console.log(error);
         },
         success: function(new_invoice){
           console.log(new_invoice);
-        },
+        }
 
       });
+      e.preventDefault();
     })
 
 });
