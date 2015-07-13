@@ -6,8 +6,9 @@ $(document).ready(function(){
 
       var price = $(this).parent().prev().children('#price').html();
       var item = $(this).parent().parent().prev().prev().prev().children('#name').html();
+      var id = $(this).parent().attr('id');
       var delete_button = '<div class="col-md-1"><button type="button" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></div>';
-      var add_item = '<div class="col-md-7 item_name">' + item + '</div>';
+      var add_item = '<div class="col-md-7 item_name" id=' + id + '>' + item + '</div>';
       var add_quantity = '<div class="col-md-2 item_qty">' + 1 + '</div>';
       var add_price = '<div class="col-md-2 item_price">' + price + '</div>';
 
@@ -44,6 +45,35 @@ $(document).ready(function(){
       })
       $('#total').text(total.toFixed(2));
 
+    })
+
+    $('#pay').on('click', function(e){
+
+      var newInvoice = [];
+
+      $('#invoice_list #item').each(function(){
+        var itemID = $(this).children('.item_name').attr('id');
+        var quantity = $(this).children('.item_qty').html();
+
+        newInvoice.push({item_id: itemID, item_qty: quantity});
+
+      })
+      var createInvoice = JSON.stringify(newInvoice);
+
+      $.ajax({
+        type: 'POST',
+        url: "invoice/ajax_create",
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        data: createInvoice,
+        error: function(error){
+          console.log(error);
+        },
+        success: function(new_invoice){
+          console.log(new_invoice);
+        },
+
+      });
     })
 
 });
