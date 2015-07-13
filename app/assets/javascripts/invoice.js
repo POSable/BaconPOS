@@ -67,9 +67,7 @@ $(document).ready(function(){
         traditional: true,
         dataType: 'json',
         data: {"transactions": test, "customer_id": 1, "pos_id": 1},
-        test: function (){
-          console.log(data);
-        },
+
         error: function(error){
           console.log(error);
         },
