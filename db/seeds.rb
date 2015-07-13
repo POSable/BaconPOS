@@ -39,3 +39,5 @@
     cc_last4: 5678,
     cc_auth: "2B2B"
   )
+  
+  User.create!(name: "Cloud Elements", username: "ce", password: "password")
