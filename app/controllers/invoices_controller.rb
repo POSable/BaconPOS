@@ -1,5 +1,5 @@
 class InvoicesController < ApplicationController
-  before_action :authenticate, except: [:index, :temp_edit_invoice_api]
+  before_action :authenticate, except: [:index, :temp_edit_invoice_api, :create_ajax_invoice]
 
   def index
     @invoices =  Invoice.all
