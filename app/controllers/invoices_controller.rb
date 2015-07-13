@@ -5,6 +5,21 @@ class InvoicesController < ApplicationController
     @invoices =  Invoice.all
   end
 
+  def create_ajax_invoice
+    new_invoice = Invoice.create!()
+    transactions = params[:transactions]
+    item_total = 0
+    transaction.each do |transaction|
+      Transaction.create!(item_id: transaction[:item_id], qty: transaction[:item_qty], invoice_id: new_invoice.id)
+      item_total += transaction[:qty] * Item.find(transaction[:item_id]).price
+    end
+    new_invoice.update(total: item_total, customer_id: params[:customer], pos_id: params[:pos])
+
+    respond_to do |format|
+      format.json {render json: new_invoice}
+    end
+  end
+
   def invoice_api
     invoice = Invoice.find(params[:id])
     if invoice
@@ -23,9 +38,7 @@ class InvoicesController < ApplicationController
     new_invoice = Invoice.create!(pos_id: Pos.last.id, customer_id: Customer.last.id)
     new_transaction = Transaction.create!(invoice_id: new_invoice.id, item_id: Item.last.id, qty: 10)
     new_invoice.update!(total: Item.last.price * new_transaction.qty)
-
     render json: {new_invoice: new_invoice, new_transaction: new_transaction}
-
   end
 
   protected

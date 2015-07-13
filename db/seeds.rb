@@ -10,6 +10,11 @@
   Pos.create!(company_id: 1, name: "First Register", description: "Serial Number 545")
 
   Item.create!(name: "Bacon", description: "So Good!", price: 4.99)
+  Item.create!(name: "Cheddar", description: "So Good!", price: 8.99)
+  Item.create!(name: "Salami", description: "So Good!", price: 6.99)
+  Item.create!(name: "Provolone", description: "So Good!", price: 6.49)
+  Item.create!(name: "Asparagus", description: "So Good!", price: 5.50)
+  Item.create!(name: "Broccoli", description: "So Good!", price: 4.99)
 
   Customer.create!(
     name: "David",
