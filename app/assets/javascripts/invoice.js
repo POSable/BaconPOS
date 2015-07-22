@@ -70,10 +70,15 @@ $(document).ready(function(){
         error: function(error){
           console.log(error);
         },
-        success: function(new_invoice){
+        success: setTimeout(function(new_invoice){
           console.log(new_invoice);
-        }
-      });
+
+          $('#pay-success').toggleClass('in');
+          $('#pay-success').css('display', 'none');
+          $('.modal-backdrop').hide();
+          location.reload();
+        }, 3000)
+      })
       e.preventDefault();
     })
 

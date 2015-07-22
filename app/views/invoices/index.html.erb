@@ -47,10 +47,11 @@
       <div class='col-md-2'><a href='#' class='btn btn-default btn-block' id='clear'>CLEAR</a></div>
       <div class='col-md-1'></div>
       <div class='col-md-2'><a href='#' class='btn btn-info btn-custom btn-block'>CASH</a></div>
-      <div class='col-md-3'><a href="#" class='btn btn-info btn-custom btn-block' id='pay'>PAY</a></div>
+      <div class='col-md-3'><button type="button" class="col-md-1 btn btn-info btn-custom btn-block" data-toggle="modal" data-target="#pay-success" id='pay'>PAY</button></div>
       <div class='col-md-4 text-left test'><h3 class='total'>Total:&nbsp;&nbsp;$<span id='total'></span></h3></div>
     </div><br>
 
+    <%= render partial: 'invoices/pay_success_modal' %>
   </div>
 </div>
 
