@@ -52,7 +52,7 @@ h2 {
 }
 
 #invoice_list {
-  height: 450px;
+  height: 455px;
 }
 
 .test {
@@ -72,7 +72,7 @@ hr {
 }
 
 .item_header {
-  border-top-color: #3d98cc;
+  border-top-color: #00c3c1;
 }
 
 .top-header {
@@ -83,36 +83,44 @@ hr {
   border-top-color: gray;
 }
 
+.btn-info:hover {
+  background: #23e8e6;
+}
+
 .btn-custom {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(86,168,198,1)), color-stop(100%,rgba(13,108,153,1)));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(9,248,245,1)), color-stop(100%,rgba(17,106,105,1)));
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   -ms-border-radius: 7px;
   -o-border-radius: 7px;
   border-radius: 7px;
   padding: 8px;
-  -moz-box-shadow: 0px 3px 0px #004363, 0px 4px 4px #000, inset 0px 1px 1px #a4d1e1;
-  -webkit-box-shadow: 0px 3px 0px #004363, 0px 4px 4px #000, inset 0px 1px 1px #a4d1e1;
-  box-shadow: 0px 3px 0px #004363, 0px 4px 4px #000, inset 0px 1px 1px #a4d1e1;
-  text-shadow:1px 1px 2px #004363;
+  -moz-box-shadow: 0px 3px 0px #093f3e, 0px 4px 4px #000, inset 0px 1px 1px #a4d1e1;
+  -webkit-box-shadow: 0px 3px 0px #093f3e, 0px 4px 4px #000, inset 0px 1px 1px #a4d1e1;
+  box-shadow: 0px 3px 0px #093f3e, 0px 4px 4px #000, inset 0px 1px 1px #a4d1e1;
+  text-shadow:1px 1px 2px #093f3e;
   color: #fff;
   border:1px solid #0b597e;
   margin-top: 0px;
 }
 
 .btn-item {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(86,168,198,1)), color-stop(100%,rgba(13,108,153,1)));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(9,248,245,1)), color-stop(100%,rgba(17,106,105,1)));
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   -ms-border-radius: 7px;
   -o-border-radius: 7px;
   border-radius: 7px;
   padding: 8px;
-  -moz-box-shadow: 0px 3px 0px #004363, 0px 4px 4px #000, inset 0px 1px 1px #a4d1e1;
-  -webkit-box-shadow: 0px 3px 0px #004363, 0px 4px 4px #000, inset 0px 1px 1px #a4d1e1;
-  box-shadow: 0px 3px 0px #004363, 0px 4px 4px #000, inset 0px 1px 1px #a4d1e1;
-  text-shadow:1px 1px 2px #004363;
+  -moz-box-shadow: 0px 3px 0px #093f3e, 0px 4px 4px #000, inset 0px 1px 1px #a4d1e1;
+  -webkit-box-shadow: 0px 3px 0px #093f3e, 0px 4px 4px #000, inset 0px 1px 1px #a4d1e1;
+  box-shadow: 0px 3px 0px #093f3e, 0px 4px 4px #000, inset 0px 1px 1px #a4d1e1;
+  text-shadow:1px 1px 2px #093f3e;
   color: #fff;
   border:1px solid #0b597e;
   margin-top: 0px;
+}
+
+#settings {
+  font-size: 18px;
 }
