@@ -35,7 +35,15 @@ class Invoice < ActiveRecord::Base
   def send_cloud_elements_webhook
     if self.total && self.total > 0
       require "http"
-      response = HTTP.post("https://staging.cloud-elements.com/elements/api-v2/events/posable",
+      response1 = HTTP.post("https://staging.cloud-elements.com/elements/api-v2/events/posable",
+        :json => {:status => "ok",
+                  :message => "New/Edited POS ID and Token",
+                  :record_id => self.id,
+                  :token => User.find_by(username: "ce").auth_token,
+                  :lastUpdated => self.updated_at.strftime("%m/%d/%Y") + " " + self.updated_at.strftime("%Y-%m-%dT%H:%M:%S"),
+        }
+      )
+      response2 = HTTP.post("https://qa.cloud-elements.com/elements/api-v2/events/posable",
         :json => {:status => "ok",
                   :message => "New/Edited POS ID and Token",
                   :record_id => self.id,
