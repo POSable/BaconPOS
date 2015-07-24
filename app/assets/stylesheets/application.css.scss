@@ -76,7 +76,7 @@ hr {
 }
 
 .top-header {
-  padding: 0px;
+  padding: 3px;
 }
 
 .header {
@@ -123,4 +123,13 @@ hr {
 
 #settings {
   font-size: 18px;
+}
+
+.login_button {
+  font-size: 24px;
+}
+
+.alert-success {
+  background-color: #00c3c1;
+  border-color: #00c3c1;
 }

@@ -71,13 +71,12 @@ $(document).ready(function(){
           console.log(error);
         },
         success: setTimeout(function(new_invoice){
-          console.log(new_invoice);
-
+          location.reload();
           $('#pay-success').toggleClass('in');
           $('#pay-success').css('display', 'none');
           $('.modal-backdrop').hide();
-          location.reload();
-        }, 3000)
+        }, 1000)
+
       })
       e.preventDefault();
     })

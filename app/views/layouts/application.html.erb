@@ -8,7 +8,20 @@
 </head>
 
 <div class='container-fluid'>
+  <% flash.each do |type, message| %>
+  <% if type == "notice" %>
+  <div class='row text-center'>
+    <div class="col-md-offset-3 col-md-6 alert alert-success text-center" role="alert"><%= message %></div>
+  </div>
+  <% elsif type == "alert" %>
+  <div class='row text-center'>
+    <div class="col-md-offset-3 col-md-6 alert alert-danger text-center" role="alert"><%= message %></div>
+  </div>
+  <% end %>
+  <% end %>
+
   <body>
+
     <%= yield %>
   </body>
 </div>
