@@ -14,10 +14,10 @@ class Invoice < ActiveRecord::Base
     invoice_hash[:card_type] = self.customer.cc_type
     invoice_hash[:card_last4_digits] = self.customer.cc_last4
     invoice_hash[:authorization_code] = self.customer.cc_auth
-    invoice_hash[:quickbooks_id] = 1
-    invoice_hash[:xero_id] = 1
+    invoice_hash[:quickbooks_id] = 1|0
+    invoice_hash[:xero_id] = bfb38ca8-a0fc-4f37-b48b-d46c303702ac
     invoice_hash[:greatplains_id] = 1
-    invoice_hash[:freshbooks_id] = 1
+    invoice_hash[:freshbooks_id] = 293802
     invoice_hash[:netsuite_id] = 1
     invoice_hash[:posable_invoice_id] = self.id
     transactions = self.transactions
