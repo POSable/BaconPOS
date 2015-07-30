@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   # VVVVVVV temp for Cloud Elements Setup VVVVVVV
   get 'invoice/new!' => 'invoices#temp_edit_invoice_api'
 
-  get 'users/dashboard' => 'users#dashboard', as: :user_dash
-  get 'users/index' => 'users#index'
+  resources :users
+  resources :pos
 
   get '/sign-in' => 'sessions#new', as: :signin
   post '/sign-in' => 'sessions#create'

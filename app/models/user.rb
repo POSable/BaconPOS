@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   has_secure_password
+  has_many :pos
 
   before_create :set_auth_token
 
