@@ -4,7 +4,25 @@ class UsersController < ApplicationController
   def index
   end
 
-  def dashboard
+  def show
+    @pos = Pos.all
+  end
+
+  def edit
+  end
+
+  def updated
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to root_path, notice: 'Account Successfully Updated'
+    end
+  end
+
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :username, :password)
   end
 
 end

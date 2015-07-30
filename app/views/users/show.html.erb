@@ -1,0 +1,58 @@
+<div id='dash_header'>
+  <div class='col-md-4'><%= image_tag('POSable_dash.png') %> </div>
+  <div class='col-md-6'></div>
+  <div class='col-md-2 account'>
+    <ul class="nav nav-pills">
+      <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <%= current_user.name %> <span class="caret"></span>
+          </a>
+        <ul class="dropdown-menu">
+          <li><a href="#" data-toggle='modal' data-target='#edit-user-<%= current_user.id %>'>Edit Account</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+    <%= render partial: 'users/edit_user_modal', locals: {user: current_user} %>
+  </div>
+</div>
+
+<div><hr id='dash_line'></div>
+<div>
+  <h2>POS</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#all" data-toggle="tab">All</a></li>
+    <li><a href="#closed" data-toggle="tab">Closed</a></li>
+  </ul>
+
+  <div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active in" id="all">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class='text-center'>Last Update</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @pos.each do |pos| %>
+          <tr class='vcenter'>
+            <td><%= pos.name %></td>
+            <td><%= pos.description %></td>
+            <td class='text-center'><%= pos.updated_at.strftime('%x') %></td>
+            <td class='text-right'><button type="button" class="btn btn-item" data-toggle="modal" data-target="#edit-pos-<%= pos.id %>" id='edit_POS'>Edit</button></td>
+            <%= render partial: 'users/edit_pos_modal', locals: {pos: pos} %>
+            <td class='text-center'><%= link_to "<span class='glyphicon glyphicon-remove'></span>".html_safe, pos_path(pos), id: 'delete', method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+</div>
