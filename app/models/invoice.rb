@@ -19,7 +19,7 @@ class Invoice < ActiveRecord::Base
     invoice_hash[:greatplains_id] = "100"
     invoice_hash[:freshbooks_id] = "293802"
     invoice_hash[:netsuite_id] = "7250"
-    invoice_hash[:posable_invoice_id] = self.id
+    invoice_hash[:posable_invoice_id] = self.id + 1000
     transactions = self.transactions
     invoice_hash[:transactions] = {}
     transactions.each do |transaction|
