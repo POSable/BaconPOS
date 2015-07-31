@@ -8,10 +8,16 @@ class PosController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:id])
     @pos = Pos.new(pos_params)
     if @pos.save
-      redirect_to user_path(@user), notice: 'POS successfully created'
+      redirect_to user_path(current_user), notice: 'POS successfully created'
+    end
+  end
+
+  def update
+    @pos = Pos.find(params[:id])
+    if @pos.update(pos_params)
+      redirect_to user_path(current_user), notice: 'POS successfully updated'
     end
   end
 

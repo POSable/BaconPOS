@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def updated
+  def update
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to root_path, notice: 'Account Successfully Updated'
