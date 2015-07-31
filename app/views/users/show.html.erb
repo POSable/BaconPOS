@@ -10,7 +10,7 @@
         <ul class="dropdown-menu">
           <li><a href="#" data-toggle='modal' data-target='#edit-user-<%= current_user.id %>'>Edit Account</a></li>
           <li class="divider"></li>
-          <li><a href="#">Logout</a></li>
+          <li><a href="/users">Logout</a></li>
         </ul>
       </li>
     </ul>
@@ -48,7 +48,7 @@
             <td class='text-center'><%= pos.updated_at.strftime('%x') %></td>
             <td class='text-right'><button type="button" class="btn btn-item btn-info" data-toggle="modal" data-target="#edit-pos-<%= pos.id %>" id='edit_POS'>Edit</button></td>
             <%= render partial: 'users/edit_pos_modal', locals: {pos: pos} %>
-            <td class='text-center'><%= link_to "<span class='glyphicon glyphicon-remove'></span>".html_safe, pos_path(pos), id: 'delete', method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+            <td class='text-center'><%= link_to "<span class='glyphicon glyphicon-remove'></span>".html_safe, po_path(pos), method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
           </tr>
           <% end %>
         </tbody>

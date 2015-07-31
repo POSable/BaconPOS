@@ -22,10 +22,9 @@ class PosController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @pos = Pos.find(params[:id])
     @pos.destroy
-      redirect_to user_path(@user), alert: 'POS Deleted'
+      redirect_to user_path(current_user), alert: 'POS Deleted'
   end
 
   private
