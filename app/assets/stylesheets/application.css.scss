@@ -31,7 +31,8 @@ h5 {
 }
 
 h2 {
-  color: #00c3c1;
+  color: white;
+  display: inline;
 }
 
 .total {
@@ -175,6 +176,14 @@ hr {
   background-color: #23e8e6;
 }
 
+.nav-tabs > li.active > a, a:active, a:hover {
+  color: #00c3c1;
+}
+
+.nav-tabs > li.active > a:focus {
+  color: #00c3c1;
+}
+
 .dropdown-menu {
   border: 1px solid #00c3c1;
 }
@@ -183,6 +192,14 @@ hr {
   padding: 5px;
 }
 
+#new_pos_button {
+  margin-top: 3px;
+}
+
 .table > tbody > tr > td {
   vertical-align: middle;
+}
+
+.table > thead > tr > th {
+  color: white;
 }

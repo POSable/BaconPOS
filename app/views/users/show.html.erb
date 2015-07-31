@@ -19,11 +19,13 @@
 </div>
 
 <div><hr id='dash_line'></div>
-<div>
-  <h2>POS</h2>
-  <ul class="nav nav-tabs">
+<div><br>
+    <h2>POS Terminals&nbsp;-&nbsp;</h2>
+    <button type="button" class="btn-info btn-item" data-toggle="modal" data-target="#new-pos" id='#new_pos_button'>+ New</button>
+  <ul class="nav nav-tabs"><br>
     <li class="active"><a href="#all" data-toggle="tab">All</a></li>
     <li><a href="#closed" data-toggle="tab">Closed</a></li>
+
   </ul>
 
   <div id="myTabContent" class="tab-content">
@@ -39,12 +41,12 @@
           </tr>
         </thead>
         <tbody>
-          <% @pos.each do |pos| %>
+          <% @all_pos.each do |pos| %>
           <tr class='vcenter'>
             <td><%= pos.name %></td>
             <td><%= pos.description %></td>
             <td class='text-center'><%= pos.updated_at.strftime('%x') %></td>
-            <td class='text-right'><button type="button" class="btn btn-item" data-toggle="modal" data-target="#edit-pos-<%= pos.id %>" id='edit_POS'>Edit</button></td>
+            <td class='text-right'><button type="button" class="btn btn-item btn-info" data-toggle="modal" data-target="#edit-pos-<%= pos.id %>" id='edit_POS'>Edit</button></td>
             <%= render partial: 'users/edit_pos_modal', locals: {pos: pos} %>
             <td class='text-center'><%= link_to "<span class='glyphicon glyphicon-remove'></span>".html_safe, pos_path(pos), id: 'delete', method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
           </tr>
@@ -53,6 +55,5 @@
       </table>
     </div>
   </div>
-
-
+  <%= render partial: 'users/new_pos_modal' %>
 </div>

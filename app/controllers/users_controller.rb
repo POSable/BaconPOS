@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @pos = Pos.all
+    @pos = Pos.new
+    @all_pos = Pos.all
   end
 
   def edit
